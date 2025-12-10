@@ -1,0 +1,32 @@
+'''
+1. Seu time precisa contratar um ponta esquerda!
+A comissão técnica definiu o perfil ideal para essa contratação e você recebeu a missão de filtrar os nomes disponíveis.
+
+Esses são os requisitos definidos:
+
+- Precisa ser destro
+- Ter mais de 10 sprints por jogo
+- Acertar pelo menos 70% dos dribles
+- OU… ser simplesmente o Neymar Jr.
+'''
+
+nome_jogadores = [
+    "Angel di Maria",
+    "Vinicius Jr.",
+    "Mohamed Salah",
+    "Neymar Jr.",
+    "Luiz Diaz"]
+
+destros = [False, True, False, True, True]
+sprints_por_jogo = [12, 12, 11, 7, 10]
+dribles_acertados = [85, 70, 80, 90, 80]
+
+jogadores_selecionados = []
+
+for i in range(len(destros)): # len() retorna o tamanho da lista
+    if destros[i] and sprints_por_jogo[i] > 10 and dribles_acertados[i] >= 70 or nome_jogadores[i] == "Neymar Jr.":
+        jogadores_selecionados.append(nome_jogadores[i])
+
+# print(jogadores_selecionados)
+
+# print('Messi' in nome_jogadores) 
