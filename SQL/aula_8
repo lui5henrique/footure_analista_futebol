@@ -1,0 +1,54 @@
+CREATE DATABASE footure;
+USE footure;
+
+-- Exercício AULA 8
+
+CREATE TABLE selecao_BR (
+id_jogador INT,
+nome varchar(100),
+posicao varchar(50),
+capitao bool,
+machucado bool
+);
+-- DROP TABLE selecao_br;
+
+INSERT INTO selecao_br VALUES
+(1, 'Neymar JR', 'Atacante', TRUE, TRUE),
+(2, 'Vinicius JR', 'Atacante', FALSE, FALSE),
+(3, 'Rodrigo', 'Atacante', FALSE, FALSE),
+(4, 'Bruno Guimarães', 'Volante',FALSE, TRUE),
+(5, 'Andrey', 'Meio-campo', FALSE, FALSE),
+(6, 'Paquetá', 'Meio-campo', FALSE, FALSE),
+(7, 'Militão', 'Zagueiro', FALSE, FALSE),
+(8, 'Estevão', 'Atacante', FALSE, FALSE),
+(9, 'Ederson', 'Goleiro', FALSE, FALSE),
+(10, 'Danilo', 'Zagueiro', FALSE, FALSE),
+(11, 'João Pedro', 'Atacante', FALSE, FALSE),
+(12, 'Casemiro', 'Meio-campo', TRUE, TRUE),
+(13, 'Gerson', 'Meio-campo', FALSE, FALSE),
+(14, 'Vitor Roque', 'Atacante', FALSE, FALSE),
+(15, 'Fabinho', 'Meio-campo', FALSE, FALSE),
+(16, 'Bento', 'Goleiro', FALSE, FALSE),
+(17, 'Luiz Henrique', 'Atacante', FALSE, FALSE),
+(18, 'Richarlison', 'Atacante', FALSE, FALSE),
+(19, 'Wesley', 'Lateral-direito', FALSE, FALSE),
+(20, 'Marquinhos', 'Zagueiro', FALSE, FALSE);
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE selecao_br set machucado = 1 WHERE nome = 'Militão';
+UPDATE selecao_br SET machucado = 1 WHERE nome = 'Richarlison';
+UPDATE selecao_br SET capitao = TRUE WHERE nome = 'Marquinhos';
+UPDATE selecao_br SET capitao = TRUE WHERE nome = 'Danilo';
+
+-- SELECT * FROM selecao_br;
+
+
+-- 1. Faça uma consulta para saber quem são os capitães da seleção.
+
+SELECT id_jogador, nome, capitao FROM selecao_br
+WHERE capitao = 1 ORDER BY id_jogador;
+
+-- 2. Faça uma consulta e liste apenas os capitães que não estejam machucados.
+
+SELECT id_jogador, nome, capitao FROM selecao_br
+WHERE capitao = 1 AND machucado = 0 ORDER BY id_jogador;
